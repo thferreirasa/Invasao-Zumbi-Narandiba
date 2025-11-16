@@ -24,6 +24,14 @@ public class Enemies : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
 
+        // player como alvo
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null )
+        {
+            alvoPlayer = playerObject.transform;
+        }
+
         // guarda posicao inicial Y do inimigo
         posicaoY = transform.position.y;
 
@@ -35,8 +43,6 @@ public class Enemies : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 direcaoMovimento;
-
         // perseguição do jogador
         if (alvoPlayer != null)
         {
@@ -44,14 +50,8 @@ public class Enemies : MonoBehaviour
 
             if (distancia <= deteccaoPlayer)
             {
-                // Y fixo, calcula posicao X ate o jogador
-                float direcaoX = (alvoPlayer.position.x - rb.position.x);
-                direcaoMovimento = new Vector2(direcaoX, 0).normalized;
-
-                // aplica velocidade no eixo X
-                rb.velocity = new Vector2(direcaoMovimento.x * velocidade, 0);
-                rb.position = new Vector2(rb.position.x, posicaoY);
-
+                direcaoCaminhada = ((Vector2)alvoPlayer.position - rb.position).normalized;
+                rb.velocity = direcaoCaminhada * velocidade;
                 return;
             }
         }
