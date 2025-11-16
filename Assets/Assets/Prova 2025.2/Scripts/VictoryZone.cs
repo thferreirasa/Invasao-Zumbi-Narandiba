@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,15 +8,15 @@ public class VictoryZone : MonoBehaviour
     public GameObject player;
     public float tempoParaVoltar = 3f;
 
-    private bool isWin = false;
-    private float timerToReturn; // contagem regressiva
+    //private bool isWin = false;
+    //private float timerToReturn; // contagem regressiva
 
-    void Start()
+   /* void Start()
     {
         timerToReturn = tempoParaVoltar;
-    }
+    }*/
 
-    void Update()
+    /*void Update()
     {
         if (isWin)
         {
@@ -28,13 +29,13 @@ public class VictoryZone : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
             }
         }
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            isWin = true;
+            //isWin = true;
 
             // ativa o canvas de vitoria
             if (winCanvas != null)

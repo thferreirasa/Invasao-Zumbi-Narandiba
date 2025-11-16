@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
     [HideInInspector] public int saudeAtual;
 
     public GameObject gameOverCanvas;
+
+    public float tempoParaVoltar = 3f;
 
     void Start()
     {
@@ -72,21 +75,35 @@ public class Health : MonoBehaviour
         }
 
         // morte do jogador
-        // ativa tela de game over
-        if (gameOverCanvas != null)
+        if (!isEnemy)
         {
-            gameOverCanvas.SetActive(true);
+            // ativa tela de game over
+            if (gameOverCanvas != null)
+            {
+                gameOverCanvas.SetActive(true);
+            }
+
+            // desativa movimento do jogador
+            PlayerController controller = GetComponent<PlayerController>();
+            if (controller != null) controller.enabled = false;
+
+            PlayerAttack attack = GetComponent<PlayerAttack>();
+            if (attack != null) attack.enabled = false;
+
+            // volta pro menu
+            StartCoroutine(ReturnToMenuAfterDelay());
+
+            return;
         }
-
-        // desativa movimento do jogador
-        PlayerController controller = GetComponent<PlayerController>();
-        if (controller != null) controller.enabled = false;
-
-        PlayerAttack attack = GetComponent<PlayerAttack>();
-        if (attack != null) attack.enabled = false;
-
-        // destroi objeto
         Destroy(gameObject, 0.1f);
+    }
+
+    // corrotina pra voltar pro menu
+    IEnumerator ReturnToMenuAfterDelay()
+    {
+        yield return new WaitForSeconds(tempoParaVoltar);
+        Destroy(gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Curar(int quantidade)

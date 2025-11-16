@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Assets/Prova 2025.2/Scenes/MainMenu.unity
     guid: 638d00008b3e3cf46b23b34a5d201dbc
   - enabled: 1
+    path: Assets/Assets/Prova 2025.2/Scenes/Tutorial.unity
+    guid: 05824e413fdd76245a87468f2b8cbbc1
+  - enabled: 1
     path: Assets/Assets/Prova 2025.2/Scenes/Game.unity
     guid: 6dbe69a487df4fb4c895538a1a964b10
   m_configObjects: {}
