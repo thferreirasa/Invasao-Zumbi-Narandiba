@@ -1,4 +1,4 @@
-## Zombie Invasion in Narandiba
+## Invasão Zumbi em Narandiba | Zombie Invasion in Narandiba
 
 2D game developed in the Game Programming course of the Digital Games program at UNEB - Universidade do Estado da Bahia, in the 2025.2 semester. The game was made in the Unity engine using the C# programming language. The project implements movement, attack, collisions, triggers, HUD, and scene transitions.
 
