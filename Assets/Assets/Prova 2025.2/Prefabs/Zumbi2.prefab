@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  dano: 5
+  dano: 6
   alvoPlayer: {fileID: 0}
   deteccaoPlayer: 5
   distanciaPercorrida: 5

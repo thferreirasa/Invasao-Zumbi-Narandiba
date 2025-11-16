@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  dano: 10
+  dano: 8
   alvoPlayer: {fileID: 0}
   deteccaoPlayer: 5
   distanciaPercorrida: 4
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80365eabbce24854c875f7bada0102c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSaude: 10
+  maxSaude: 7
   isEnemy: 1
   healthSlider: {fileID: 0}
   saudeAtual: 0
